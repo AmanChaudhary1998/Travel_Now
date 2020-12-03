@@ -1,0 +1,50 @@
+<%include header%>
+
+    <!-- banner -->
+    <style>
+      #main{
+        height: 500px;
+        width: 668px;
+        background-color: lightcyan;
+      }
+      .inner_main{
+        height: 200px;
+        width: 268px;
+        background-color: lightsalmon;
+        float: left;
+        margin-left:3px;
+      }
+      </style>
+    <section class="banner">
+        <!-- banner text -->
+        <div class="container">
+            <div class="banner_text_wthree_pvt">
+                <h3 class="home-banner-w3">EVERYTIME EVERYWHERE WE ARE AVAILABLE FOR YOU!</h3>
+
+                <p class="bnr-txt">Around the world
+
+                </p>
+            </div>
+        </div>
+        <!-- //banner text -->
+    </section>
+
+        <center>
+          <div class="container">
+          <h1 style="font-family: Georgia, 'Times New Roman', Times, serif">Welcome to Celebrations </h1>
+        </div>
+          <h1 style="font-family: Georgia, 'Times New Roman', Times, serif">Category List </h1>
+          <div id="main">
+          <% for(let row of clist) { %>
+            <a href="viewsubcategory?catnm=<%=row.catnm%>">
+          <div class="inner_main">
+              <img src="../uploads/categoryicon/<%= row.caticon_nm%>" height="100" width="150" alt="">
+              <br><br>
+              <b><%= row.catnm%></b>
+          </div>
+        </a>
+          <%}%>
+          </div>
+        </center>
+
+<%include footer%>

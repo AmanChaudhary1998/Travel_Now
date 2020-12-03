@@ -1,0 +1,49 @@
+<% include adminheader%>
+
+
+<!--Main Section Starts-->
+
+<div id="tooplate_main">
+    
+        <center>
+        <h3><b>Sub Category >> <a href="/"> <%= catnm%> </a></b> </h3>
+
+        <style>
+            #main{
+                height: 450px;
+                width: 600px;
+                background-color: lightcyan;
+            }
+            .main_part{
+                height: 150px;
+                width: 200px;
+                background-color: lightsalmon;
+                float: left; 
+            }
+        </style>
+
+
+        <div id="main">
+            <% for(let row of sclist) { %>
+            <div class="main_part">
+                <center>
+                    <img src="../uploads/subcategoryicon/<%=row.subcaticon_nm%>" height="100" width="150" />
+                    <br><br>
+                    <b><%= row.subcatnm%></b>
+                </center>
+            </div>
+            <% } %>
+        </div>
+    </center>
+
+        
+    
+        
+		<div class="cleaner"></div>
+</div>
+
+    <div class="cleaner"></div>  
+
+    <!--Main Section Ends-->
+
+<%include footer%>

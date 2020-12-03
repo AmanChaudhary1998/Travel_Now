@@ -1,0 +1,90 @@
+<%include userheader%>
+
+    <!-- banner -->
+    <section class="banner">
+        <!-- banner text -->
+        <div class="container">
+            <div class="banner_text_wthree_pvt">
+                <h3 class="home-banner-w3">helping you with any of your business needs!</h3>
+
+                <p class="bnr-txt">Yours Dreams Comes True
+
+                </p>
+            </div>
+        </div>
+        <!-- //banner text -->
+    </section>
+
+    <center>
+            <h1 style="padding-top:10px;padding-bottom:10px">Manage User Locations</h1>
+            <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Regid</th>
+                <th scope="col">Title</th>
+                <th scope="col">Category</th>
+                <th scope="col">Subcategory</th>
+                <th scope="col">Views</th>
+                <th scope="col">State</th>
+                <th scope="col">City</th>
+                <th scope="col">Status</th>
+                <th scope="col">Payment</th>
+              </tr>
+            </thead>
+            <tbody>
+                <%for(let row of result) {%>
+              <tr>
+                <td><%=row._id %></td>
+                <td><%=row.title %></td>
+                <td><%=row.category %></td>
+                <td><%=row.subcategory %></td>
+                <td>
+                    <img src="../uploads/locationicon/<%= row.img1%>" height="50" width="75" alt="">
+                    <img src="../uploads/locationicon/<%= row.img2%>" height="25" width="35" alt="">
+                    <img src="../uploads/locationicon/<%= row.img3%>" height="25" width="35" alt="">
+                    <img src="../uploads/locationicon/<%= row.img4%>" height="25" width="35" alt="">
+                </td>
+                <td><%=row.state %></td>
+                <td><%=row.city %></td>
+                <td>
+                <% if(row.status) {%>
+                  <font color="green">Verified</font>
+                  <%} else {%>
+                    <font color="red">Not Verified</font>
+                    <%}%>
+                </td>
+                <td>
+                    <% if(row.status){ %>
+                      ...... 
+                      <%} else {%>
+                        <!-- PayPal payment form for displaying the buy button -->
+    <form action="<%= PAYPAL_URL %>" method="post">
+    <!-- Identify your business so that you can collect the payments. -->
+    <input type="hidden" name="business" value="<%= PAYPAL_ID %>">
+    
+    <!-- Specify a Buy Now button. -->
+    <input type="hidden" name="cmd" value="_xclick">
+    
+    <!-- Specify details about the item that buyers will purchase. -->
+    <input type="hidden" name="item_name" value="Verify Location Charges">
+    <input type="hidden" name="item_number" value="<%= row._id %>">
+    <input type="hidden" name="amount" value="200">
+    <input type="hidden" name="currency_code" value="USD">
+    
+    <!-- Specify URLs -->
+    <input type="hidden" name="return" value="http://localhost:3000/users/payment?locationid=<%= row._id %>&sunm=<%= sunm %>&price=200" > 
+    <input type="hidden" name="cancel_return" value="http://localhost:3000/users/cancel/">
+    
+    <!-- Display the payment button. -->
+    <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif">
+  </form>
+                        <% }%>
+                </td>
+              </tr>
+                <%}%>
+            </tbody>
+          </table>
+
+    </center>
+
+<%include userfooter%>

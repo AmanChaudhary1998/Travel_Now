@@ -1,0 +1,61 @@
+<%include adminheader%>
+
+    <!-- banner -->
+    <section class="banner">
+        <!-- banner text -->
+        <div class="container">
+            <div class="banner_text_wthree_pvt">
+                <h3 class="home-banner-w3">helping you with any of your business needs!</h3>
+
+                <p class="bnr-txt">Yours Dreams Comes True
+
+                </p>
+            </div>
+        </div>
+        <!-- //banner text -->
+    </section>
+
+    <center>
+            <h1 style="padding-top:10px;padding-bottom:10px">Manage Users</h1>
+            <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Regid</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Info</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <%for(let row of result) {%>
+              <tr>
+                <td><%=row._id %></td>
+                <td><%=row.firstname %></td>
+                <td><%=row.lastname %></td>
+                <td><%=row.email %></td>
+                <td><%=row.mobile %></td>
+                <td><%=row.address %></td>
+                <td><%=row.city %></td>
+                <td><%=row.state %></td>
+                <td><%= row.info%></td>
+                <% if(row.status) {%>
+                  <td><a href="/admin/manageuserstatus?s=block&regid=<%=row._id %>">Block</a></td>
+                  <%} else {%>
+                    <td><a href="/admin/manageuserstatus?s=unblock&regid=<%=row._id %>">Unblock</a></td>
+                    <%}%>
+                <td><a href="/admin/manageuserstatus?s=delete&regid=<%=row._id %>">Delete</a></td>
+                <%}%>
+                </tr>
+            </tbody>
+          </table>
+
+    </center>
+
+<%include adminfooter%>

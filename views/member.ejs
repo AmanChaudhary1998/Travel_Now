@@ -1,0 +1,39 @@
+<%include header%>
+
+
+    <!-- banner -->
+    <section class="banner">
+        <!-- banner text -->
+        <div class="container">
+            <div class="banner_text_wthree_pvt">
+                <h3 class="home-banner-w3">helping you with any of your business needs!</h3>
+
+                <p class="bnr-txt">Yours Dreams Comes True
+
+                </p>
+            </div>
+        </div>
+        <!-- //banner text -->
+        <h3 style="color:red;text-align:center"><%= msg%></h3>
+        <form action="" method="POST" style="margin-right: 20%; margin-left: 20%; margin-top: 5%;margin-bottom: 10%;">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="<%=cunm%>">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" id="exampleInputPassword1" value="<%=cpass%>">
+            </div>
+            <div class="form-group form-check" style="color:blanchedalmond">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="chk">
+              <label class="form-check-label" for="exampleCheck1">Remember me</label>
+            </div>
+            <div style="text-align: right;">
+              <a href="/forgetpassword">
+                <b>Forgot Password</b>
+                </a>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+
+<%include footer%>

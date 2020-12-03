@@ -1,0 +1,38 @@
+<%include adminheader%>
+
+<!--Main Section Starts-->
+
+<div id="tooplate_main">
+
+    <center>
+
+      <h3 style="color:blue"><%=msg%></h3>
+        <h2 style="padding-top:20px; padding-bottom:20px">Add Category</h2>
+    <form method="post" enctype="multipart/form-data" action="" style="padding-top:20px; padding-bottom:20px" >
+      <table cellspacing="20">
+      <tr>
+      <td><label>Category Name</label></td>
+      <td><input type="text" name="catnm" placeholder="Enter Category Name"/></td>
+      </tr>
+      <tr>
+      <td><label>Category Icon</label></td>
+      <td><input type="file" name="caticon" /></td>
+      </tr>
+      <tr>
+      <td><input type="submit" value="Add Category" /></td>
+      </tr>
+      </table>
+      </form>
+    </center>
+
+
+
+
+    <div class="cleaner"></div>
+</div>
+
+<div class="cleaner"></div>
+
+<!--Main Section Ends-->
+
+<%include footer%>

@@ -1,0 +1,28 @@
+
+  <form action="" method="POST" style="margin-left: 40%; margin-right: 40%; margin-top: 10%;">
+
+    <input type="hidden" name="email" value="<%= email %>">
+    <div class="md-form md-outline">
+      <input type="password" id="newPass" class="form-control" name="password">
+      <label data-error="wrong" data-success="right" for="newPass">New password</label>
+    </div>
+
+    <div class="md-form md-outline">
+      <input type="password" id="newPassConfirm" class="form-control" name="confirmpassword">
+      <label data-error="wrong" data-success="right" for="newPassConfirm">Confirm password</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-4" onclick="return Validate()">Change password</button>
+
+  </form>
+<script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("newPass").value;
+        var confirmPassword = document.getElementById("newPassConfirm").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>

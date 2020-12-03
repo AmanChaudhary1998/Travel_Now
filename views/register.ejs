@@ -1,0 +1,72 @@
+<%include header%>
+
+    <!-- banner -->
+    <section class="banner">
+        <!-- banner text -->
+        <div class="container">
+            <div class="banner_text_wthree_pvt">
+                <h3 class="home-banner-w3">helping you with any of your business needs!</h3>
+
+                <p class="bnr-txt">Yours Dreams Comes True
+
+                </p>
+            </div>
+        </div>
+        <!-- //banner text -->
+    </section>
+    <div>
+
+        <center><h3 style="font-family: Georgia, 'Times New Roman', Times, serif;color:blue;padding-top:10px"><%=msg%></h3></center>
+        <h1 style="padding-top: 10px; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">Registration Form</h1>
+    </div>
+    <div>
+        <form method="POST" action="/register" style="margin-right: 20%; margin-left: 20%; margin-top: 5%;margin-bottom: 10%;">
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required>
+                </div>
+              <div class="form-group col-md-6">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required>
+               </div>
+              <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="mobile" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+              </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <textarea class="form-control" name="address" id="address" cols="30" rows="10"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="city">City</label>
+                <input type="text" class="form-control" name="city" id="city">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="state">State</label>
+                <select id="state" name="state" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>M.P.</option>
+                  <option>Gujarat</option>
+                  <option>Maharastra</option>
+                  <option>Punjab</option>
+                  <option>Goa</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </form>
+    </div>
+
+<%include footer%>

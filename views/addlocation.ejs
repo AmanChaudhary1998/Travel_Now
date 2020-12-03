@@ -1,0 +1,179 @@
+<% include userheader%>
+
+
+<!--Main Section Starts-->
+
+<div id="tooplate_main">
+
+    <script>
+
+        function fetchsubcat(catnm){
+            var xhttp = new XMLHttpRequest()
+            xhttp.open("GET","http://localhost:3000/users/fetchsubcat?catnm="+catnm,true)
+            xhttp.send()
+            
+            xhttp.onreadystatechange= function(){
+                if(xhttp.status==200 && xhttp.readyState==4){
+                    sclist = JSON.parse(xhttp.responseText)
+                    sclist_option="<option>Select sub category</option>"
+                    for(let x of sclist){
+                        sclist_option+=("<option>"+x.subcatnm+"</option>")
+                    }
+                    document.getElementById('subcategory').innerHTML=sclist_option
+                }
+            }
+
+        }
+
+        function fetchcity(s){
+            var xhttp = new XMLHttpRequest()
+            xhttp.open("Get","http://localhost:3000/users/fetchcity?s="+s,true)
+            xhttp.send()
+
+            xhttp.onreadystatechange=function(){
+                if(xhttp.status==200 && xhttp.readyState==4){
+                    citylist = JSON.parse(xhttp.responseText)
+                    citylist_options="<option>Select City</option>"
+                    for(let x of citylist){
+                        citylist_options+=("<option>"+x+"</option>")
+                    }
+                    document.getElementById('city').innerHTML= citylist_options
+                }
+            }
+
+        }
+
+        function fetchlocality(c){
+            var xhttp = new XMLHttpRequest()
+            xhttp.open("GET","http://localhost:3000/users/fetchlocality?c="+c,true)
+            xhttp.send()
+
+            xhttp.onreadystatechange = function(){
+                if(xhttp.status==200 && xhttp.readyState==4){
+                    locality_list = JSON.parse(xhttp.responseText)
+                    locality_list_option = "<option>Select Locality</option>"
+                    for(let x of locality_list){
+                        locality_list_option+=("<option>"+x.localityname+"</option>")
+                    }
+                    document.getElementById('locality').innerHTML = locality_list_option
+                }
+            }
+        }
+
+    </script>
+
+        
+    <center>
+        <h3 style="font-size:20px";color="blue"><%= msg%></h3>
+    <font style="font-size:20px" color="orange"></font>
+    <form method="post" action="" enctype="multipart/form-data" >
+    <table class="table table-bordered">
+    <tr>
+    <td colspan="2">
+    <center>
+    <h2>Add Location Here!!!</h2>           
+    </center>
+    </td>
+    </tr>
+    <tr>
+    <td>Title</td>
+    <td><input type="text" name="title" placeholder="Enter location title"/></td>
+    </tr>
+    <tr>
+    <td>Category</td>
+    <td>
+    
+    <select name="category" onchange="fetchsubcat(this.value)">
+    <option>Select category</option>
+    <%for(let row of clist) {%>
+        <option><%=row.catnm%></option>
+        <%}%>
+    </select>
+    </td>
+    </tr>
+    <tr>
+    <td>Sub Category</td>
+    <td>
+    <select id="subcategory" name="subcategory" id="response">
+    <option>Select sub category</option>
+    </select>
+    </td>
+    </tr>
+    
+    <tr>
+    <td>Description</td>
+    <td><textarea name="description" placeholder="Enter location description"></textarea></td>
+    </tr>
+    
+    <tr>
+    <td>Location Images</td>
+    <td>
+    
+    Image 1 : <input type="file" name="file1" required/><br><br>	
+    Image 2 : <input type="file" name="file2" /><br><br>
+    Image 3 : <input type="file" name="file3" /><br><br>
+    Image 4 : <input type="file" name="file4" />
+    
+    </td>
+    </tr>
+    
+    <tr>
+    <td>Address</td>
+    <td><textarea name="address" placeholder="Enter location address"></textarea></td>
+    </tr>
+    
+    <tr>
+    <td>State</td>
+    <td>
+    <select name="state" onchange="fetchcity(this.value)">
+    <option>Select state</option>
+    <%for(let x of state_list) {%>
+        <option><%= x%></option>
+        <%}%>
+    </select>
+    </td>
+    </tr>
+    
+    
+    <tr>
+    <td>City</td>
+    <td>
+    <select name="city" id="city" onchange="fetchlocality(this.value)">
+    <option>Select city</option>
+    </select>
+    </td>
+    </tr>
+    
+    
+    <tr>
+    <td>Locality</td>
+    <td>
+    <select name="locality" id="locality">
+    <option>Select locality</option>
+    </select>
+    </td>
+    </tr>
+    
+    <tr>
+    <td colspan="2">
+    <center>
+    <input type="submit" value="Enter Location"/>
+    </center>
+    </td>
+    </tr>
+    
+    </table>
+    
+    </form>
+    </center>
+        
+    
+        
+		<div class="cleaner"></div>
+</div>
+
+    <div class="cleaner"></div>  
+
+    <!--Main Section Ends-->
+
+<%include footer%>
